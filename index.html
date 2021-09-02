@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная № 1</title>
+
+    <style type="text/css">
+        body {
+            font-family: cursive;
+        }
+        
+
+        #root p::first-line {
+            font-family:"Comic Sans MS", serif;
+            color: red;
+            font-size: 25px;
+        }
+        form > div {
+            margin-bottom: 1%;
+        }
+
+        label, input, select {
+            font-family:"Comic Sans MS", cursive;
+            margin-left: 0.5%;
+        }
+        .submit:hover {
+            background-color: red;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function sendData(f) {
+            if (isNaN(document.getElementById("yField").value) || document.getElementById("yField").value < -3 || document.getElementById("yField").value > 5) {
+                alert("Y инвалид");
+                return false;
+            }
+            else
+                f.submit();
+        }
+    </script>
+</head>
+<body>
+    <div id="root">
+        <div>
+            <p>ФИО: Пименов Данила Дмитриевич Группа: P3230 Вариант: 30012</p>
+        </div>
+        <div>
+            <form method="get" action="handler.php" onsubmit="return sendData(this);">
+                <div>
+                    Изменение X:
+                    <label>
+                        <input  type="radio" name="x" value="-3">-3
+                        <input  type="radio" name="x" value="-2">-2
+                        <input  type="radio" name="x" value="-1">-1
+                        <input  type="radio" name="x" value="0">0
+                        <input  type="radio" name="x" value="1">1
+                        <input  type="radio" name="x" value="2">2
+                        <input  type="radio" name="x" value="3">3
+                    </label>
+                </div>
+                <div>
+                    Изменение Y: <label><input id="yField" type="text" name="y"></label>
+                </div>
+                <div>
+                    Изменение R:
+                    <label>
+                        <select name="r">
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                            <option value="3">3</option>
+                        </select>
+                    </label>
+                </div>
+                <div>
+                    <input class="submit" type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
